@@ -5,7 +5,7 @@
 The SFA40 is a formaldehyde (HCHO) sensor with remarkably high sensitivity and accuracy in the field due to exceptionally low cross-sensitivity to typical indoor gases. Developed for air purifiers, air conditionersand indoor air quality monitors, the SFA40 meets the key requirements of miniature size, low power consumption and high accuracy even in a background of other volatile organic compounds. The sensor is suitable for accurately detecting formaldehyde concentrations below the limits of WHO, ASHRAE, WELL and Chinese National Standard GB/T 18883-2022
 
 The robust sensor has a long lifetime due to its advanced anti-dry technology. Each SFA40 is factorycalibrated and can be easily integrated via I2C interface into the final device. The low power consumption  allows for integration into battery-driven devices. This makes SFA40 a reliable, easy-to-use and high quality formaldehyde sensing solution.
-![Product Image](../../resources/images/SEN0626svg.png)
+![Product Image](../../resources/images/SFA40.png)
 
 ## Product Link（https://www.dfrobot.com/)
       SEN0661 Gravity: SFA40 HCHO Sensor

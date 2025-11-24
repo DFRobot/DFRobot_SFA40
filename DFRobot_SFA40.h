@@ -77,7 +77,7 @@ public:
    * @retval 2:Sensor is not up to specification!
   */
   uint8_t readMeasurementData(void);
-  float HOCO= NAN;  
+  float HCHO= NAN;  
   float humidity=NAN;
   float temperatureC=NAN;
   float temperatureF=NAN;

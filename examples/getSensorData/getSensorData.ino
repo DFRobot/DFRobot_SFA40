@@ -34,7 +34,7 @@ void loop() {
   uint8_t status = SFA40.readMeasurementData();
   if(status==0){
     Serial.println("The sensor is ready and the data is reliable! ");
-    static int number=0;
+
 
     Serial.print("TemperatureC: ");
     Serial.print(SFA40.temperatureC);
@@ -48,15 +48,16 @@ void loop() {
     Serial.print(SFA40.humidity);
     Serial.println(" %RH");
   
-    Serial.print("HOCO:");
-    Serial.print(SFA40.HOCO);
+    Serial.print("HCHO:");
+    Serial.print(SFA40.HCHO);
     Serial.println(" ppb");  
-    if(number==100){
-      SFA40.stopMeasurement();
-      Serial.print("The sensor has stopped measuring!");
-      while(1);
-    }
-    number++;
+    // static int number=0;
+    // if(number==100){
+    //   SFA40.stopMeasurement();
+    //   Serial.print("The sensor has stopped measuring!");
+    //   while(1);
+    // }
+    // number++;
   }else if(status&0x01){
     Serial.println("The sensor is not ready!");
   }else if(status&0x02){

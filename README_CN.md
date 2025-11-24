@@ -6,7 +6,7 @@ SFA40 是一款甲醛 （HCHO） 传感器，由于对典型室内气体的交�
 
 由于其先进的防干技术，坚固的传感器具有较长的使用寿命。每个 SFA40 都经过工厂校准，可以通过 I2C 接口轻松集成到最终设备中。低功耗允许集成到电池驱动设备中。这使得 SFA40 成为可靠、易于使用且高质量的甲醛传感解决方案。
 
-![正反面svg效果图](../resources/images/SFA40.png)
+![正反面svg效果图](./resources/images/SFA40.png)
 
 ## 产品链接（ https://www.dfrobot.com.cn/ ）
 

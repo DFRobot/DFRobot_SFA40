@@ -19,7 +19,7 @@ startMeasurement	KEYWORD2
 stopMeasurement	KEYWORD2
 getSerialNumber	KEYWORD2
 readMeasurementData	KEYWORD2
-HOCO	KEYWORD2	
+HCHO	KEYWORD2	
 humidity	KEYWORD2
 temperatureC	KEYWORD2
 temperatureF	KEYWORD2

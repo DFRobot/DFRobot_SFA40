@@ -48,17 +48,17 @@ uint8_t DFRobot_SFA40::calcCrc(uint8_t data[],uint8_t length){
 uint8_t DFRobot_SFA40::readMeasurementData(void){
   memset(_buf,0,12);
   readReg(SAF40_COMMAND_READ,_buf,12);
-  HOCO= NAN;  
-  humidity=NAN;
-  temperatureC=NAN;
-  temperatureF=NAN;
+  // HCHO= NAN;  
+  // humidity=NAN;
+  // temperatureC=NAN;
+  // temperatureF=NAN;
   if(_buf[10]==0){
     uint8_t data[3];
     data[0]=_buf[0];
     data[1]=_buf[1];
     data[2]=_buf[2];
     if(calcCrc(data,2)==data[2]){
-      HOCO = (data[0]*256 +data[1])/10;  
+      HCHO = (data[0]*256 +data[1])/10;  
     }
     data[0]=_buf[3];
     data[1]=_buf[4];

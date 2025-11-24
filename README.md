@@ -7,7 +7,7 @@ The SFA40 is a formaldehyde (HCHO) sensor with remarkably high sensitivity and a
 The robust sensor has a long lifetime due to its advanced anti-dry technology. Each SFA40 is factorycalibrated and can be easily integrated via I2C interface into the final device. The low power consumption  allows for integration into battery-driven devices. This makes SFA40 a reliable, easy-to-use and high quality formaldehyde sensing solution.
    
    
-![正反面svg效果图](../resources/images/SFA40.png)
+![正反面svg效果图](./resources/images/SFA40.png)
 
 ## Product Link（https://www.dfrobot.com/)
     SEN0661 Gravity: SFA40 HCHO Sensor

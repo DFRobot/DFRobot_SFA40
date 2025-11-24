@@ -25,17 +25,21 @@ def setup():
   time.sleep(1)
 
 def loop():
-  for i in range(0, 100):
+  while True:
     status = sfa40.read_measurement_data_raw()
     if status==0 :
       print("The sensor is ready and the data is reliable! ")
-      print("Temperature: {} ℃, {} ℉, humidity: {} %RH, HOCO: {} ppb".format(sfa40.temperature_c,sfa40.temperature_f,sfa40.humidity,sfa40.HCHO))
+      print("Temperature: {} ℃, {} ℉, humidity: {} %RH, HCHO: {} ppb".format(sfa40.temperature_c,sfa40.temperature_f,sfa40.humidity,sfa40.HCHO))
     elif status==1 :
       print("The sensor is not ready.")
     elif status==2:
       print("Sensor is not up to specification.")
     time.sleep(1)
-  sfa40.stop_measurement()
+    #number+=1
+    #if number==100:
+    #  sfa40.stop_measurement()
+    #  print("The sensor has stopped measuring!")
+    #  break
 # Execute setup function
 setup()
 # Execute loop function
