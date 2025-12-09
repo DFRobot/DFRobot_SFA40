@@ -27,7 +27,7 @@
 #define SAF40_COMMAND_START      0x00AC 
 #define SAF40_COMMAND_READ       0xE06D 
 #define SAF40_COMMAND_STOP       0x50D2 
-#define SAF40_COMMAND_ID         0x0559 
+#define SAF40_COMMAND_ID         0x02CE
 #define SAF40_CRC_INITIAL_VALUE  0xFF
 #define SAF40_CRC_POLYNOMIAL     0x31
 #define SAF40_IIC_ADDRESS        0x5D
@@ -118,7 +118,7 @@ private:
   TwoWire *_pWire;
   uint8_t _deviceAddr;  
   uint8_t _buf[15];
-  uint8_t serialNumber[10];
+  uint8_t serialNumber[15];
 };
 
 #endif
