@@ -39,24 +39,24 @@ uint8_t DFRobot_SFA40::calcCrc(uint8_t data[],uint8_t length){
   return crc;
 }
 uint8_t * DFRobot_SFA40::getSerialNumber(void){
-  memset(_buf,0,9);
-  readReg(SAF40_COMMAND_ID,_buf,9);
-  uint8_t crcResult = 0;
-	uint8_t index = 0;  
-	for(int i = 0;i < 9;i+=3)
-	{
-		crcResult =  calcCrc(_buf+i,2);
-		if(crcResult == _buf[i+2])
-		{
-			serialNumber[index++] = _buf[i];
-			serialNumber[index++] = _buf[i+1];
-		}
-    else
+    memset(_buf,0,9);
+    readReg(SAF40_COMMAND_ID,_buf,9);
+    uint8_t crcResult = 0;
+    uint8_t index = 0;  
+    for(int i = 0;i < 9;i+=3)
     {
-       return NULL;
+      crcResult =  calcCrc(_buf+i,2);
+      if(crcResult == _buf[i+2])
+      {
+        serialNumber[index++] = _buf[i];
+        serialNumber[index++] = _buf[i+1];
+      }
+      else
+      {
+        return NULL;
+      }
     }
-	}
-  return serialNumber;
+    return serialNumber;
 }
 
 
