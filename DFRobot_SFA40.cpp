@@ -24,13 +24,6 @@ void DFRobot_SFA40::stopMeasurement(void){
   writeReg(SAF40_COMMAND_STOP);
 }
 
-uint8_t * DFRobot_SFA40::getSerialNumber(void){
-  memset(_buf,0,15);
-  readReg(SAF40_COMMAND_ID,_buf,15);
-  memcpy(serialNumber,_buf,10);
-  return serialNumber;
-}
-
 uint8_t DFRobot_SFA40::calcCrc(uint8_t data[],uint8_t length){
   uint8_t crc = SAF40_CRC_INITIAL_VALUE;
   for(int i = 0; i < length; i++) {
@@ -45,6 +38,28 @@ uint8_t DFRobot_SFA40::calcCrc(uint8_t data[],uint8_t length){
   }
   return crc;
 }
+uint8_t * DFRobot_SFA40::getSerialNumber(void){
+  memset(_buf,0,9);
+  readReg(SAF40_COMMAND_ID,_buf,9);
+  uint8_t crcResult = 0;
+	uint8_t index = 0;  
+	for(int i = 0;i < 9;i+=3)
+	{
+		crcResult =  calcCrc(_buf+i,2);
+		if(crcResult == _buf[i+2])
+		{
+			serialNumber[index++] = _buf[i];
+			serialNumber[index++] = _buf[i+1];
+		}
+    else
+    {
+       return NULL;
+    }
+	}
+  return serialNumber;
+}
+
+
 uint8_t DFRobot_SFA40::readMeasurementData(void){
   memset(_buf,0,12);
   readReg(SAF40_COMMAND_READ,_buf,12);

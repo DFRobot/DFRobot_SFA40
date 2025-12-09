@@ -1,3 +1,5 @@
+#include <DFRobot_SFA40.h>
+
 /*!
  * @file getSensorData.ino
  * @brief This example shows how to obtain data collected by SFA40, including HCHO and temperature and humidity data
@@ -19,16 +21,24 @@ void setup() {
     Serial.print("failed,Not found SFA40!");
   }
   Serial.println("successed");
+  SFA40.stopMeasurement();
+  uint8_t* id = SFA40.getSerialNumber();
+  Serial.print("SerialNumber:");
+  if(id == NULL)
+  {
+    Serial.println("failed,getSerialNumber error!");
+  }
+  else
+  {
+    for(uint8_t i=0;i<6;i++)
+    {
+      Serial.print(id[i],HEX);
+      Serial.print(" ");
+    }
+  }
+  Serial.println();
   SFA40.startMeasurement();
-  //uint8_t* id = SFA40.getSerialNumber();
-  // Serial.print("SerialNumber:");
-  // for(uint8_t i=0;i<10;i++){
-  //   Serial.print(id[i]);
-  //   Serial.print(" ");
-  // }
-  // Serial.println();
-
-}
+  }
   
 void loop() {
   uint8_t status = SFA40.readMeasurementData();
