@@ -118,7 +118,7 @@ private:
   TwoWire *_pWire;
   uint8_t _deviceAddr;  
   uint8_t _buf[15];
-  uint8_t serialNumber[10];
+  uint8_t serialNumber[15];
 };
 
 #endif
