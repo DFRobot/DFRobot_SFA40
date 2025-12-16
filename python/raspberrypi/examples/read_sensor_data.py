@@ -20,7 +20,13 @@ def setup():
   if sfa40.begin()!=0:
     print("failed,Not found SFA40!")
   print("successed")
-  #print("serial number:{}.".format(sfa40.get_serial_number()))
+  sfa40.stop_measurement()
+  serial = sfa40.get_serial_number()
+  if serial:
+     serial_hex = ' '.join('{:02X}'.format(b) for b in serial)
+     print("serial number: {}.".format(serial_hex))
+  else:
+     print("Failed to get serial number.")
   sfa40.start_measurement()
   time.sleep(1)
 

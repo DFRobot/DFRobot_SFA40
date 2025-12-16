@@ -128,6 +128,19 @@ class DFRobot_SFA40:
         @brief get serial number
         @return serial number
         '''
+        # Clear buffer
+        self._buf = [0] * 9
         self._write_command(self.SAF40_COMMAND_ID)
-        serial = self._read_bytes(10)
-        return bytes(serial)
+        self._buf = self._read_bytes(9)
+        
+        serial_number = []
+        for i in range(0, 9, 3):
+            crc_result = self._calc_crc(self._buf[i:i+2])
+            
+            if crc_result == self._buf[i+2]:
+                serial_number.append(self._buf[i])
+                serial_number.append(self._buf[i+1])
+            else:
+                return None
+    
+        return bytes(serial_number)
