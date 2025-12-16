@@ -5,7 +5,7 @@
   @copyright   Copyright (c) 2025 DFRobot Co.Ltd (http://www.dfrobot.com)
   @license     The MIT license (MIT)
   @author [fary](feng.yang@dfrobot.com)
-  @version  V1.0
+  @version  V1.0.3
   @date  2025-04-10
   @https://github.com/DFRobot/DFRobot_SFA40
 '''
@@ -16,7 +16,7 @@ class DFRobot_SFA40:
     SAF40_COMMAND_START      = 0x00AC
     SAF40_COMMAND_READ       = 0xE06D
     SAF40_COMMAND_STOP       = 0x50D2
-    SAF40_COMMAND_ID         = 0x0559
+    SAF40_COMMAND_ID         = 0x02CE
     SAF40_CRC_INITIAL_VALUE  = 0xFF
     SAF40_CRC_POLYNOMIAL     = 0x31
     
@@ -128,11 +128,9 @@ class DFRobot_SFA40:
         @brief get serial number
         @return serial number
         '''
-        # Clear buffer
         self._buf = [0] * 9
         self._write_command(self.SAF40_COMMAND_ID)
         self._buf = self._read_bytes(9)
-        
         serial_number = []
         for i in range(0, 9, 3):
             crc_result = self._calc_crc(self._buf[i:i+2])
@@ -142,5 +140,4 @@ class DFRobot_SFA40:
                 serial_number.append(self._buf[i+1])
             else:
                 return None
-    
         return bytes(serial_number)

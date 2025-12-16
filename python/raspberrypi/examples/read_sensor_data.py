@@ -5,7 +5,7 @@
   @copyright   Copyright (c) 2025 DFRobot Co.Ltd (http://www.dfrobot.com)
   @license     The MIT license (MIT)
   @author [fary](feng.yang@dfrobot.com)
-  @version  V1.0
+  @version  V1.0.3
   @date  2025-04-10
   @https://github.com/DFRobot/DFRobot_SFA40
 '''
@@ -41,11 +41,6 @@ def loop():
     elif status==2:
       print("Sensor is not up to specification.")
     time.sleep(1)
-    #number+=1
-    #if number==100:
-    #  sfa40.stop_measurement()
-    #  print("The sensor has stopped measuring!")
-    #  break
 # Execute setup function
 setup()
 # Execute loop function
